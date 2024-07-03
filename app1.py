@@ -40,7 +40,7 @@ def load_overall_analysis():
     temp_df['x_axis'] = temp_df['Month'].astype('str') + '-' + temp_df['Year'].astype('str')
 
     fig3, ax3 = plt.subplots()
-    ax3.plot(temp_df['x_axis',], temp_df['Amount'])
+    ax3.plot(temp_df['x_axis'], temp_df['Amount'])
     plt.xticks(fontsize = 3)
 
     st.pyplot(fig3)
