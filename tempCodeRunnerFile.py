@@ -1,0 +1,1 @@
+temp_df = df.groupby(['Year', 'Month'])['Amount'].sum().reset_index()
