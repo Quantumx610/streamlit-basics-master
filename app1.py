@@ -102,7 +102,7 @@ def load_startup_analysis(startup):
     st.subheader('City wise investors')
     city_inv = df[df['Startup'].str.contains(startup)].groupby('City')['Amount'].sum()
     
-    fig3 , ax3 = plt.subplots(figsize = (5,5))
+    fig3 , ax3 = plt.subplots()
     ax3.pie(city_inv,labels = city_inv.index,autopct='%0.01f%%' )
     st.pyplot(fig3)
 
