@@ -65,7 +65,7 @@ def load_startup_analysis(startup):
     fig, ax = plt.subplots()
     ax.bar(big_series.index,big_series.values)
 
-    st.pyplot(fig)
+    st.pyplot(fig,clear_figure=True)
 
     col1,col2 = st.columns(2)
     #biggest investmest
@@ -83,9 +83,8 @@ def load_startup_analysis(startup):
 
         fig2 , ax2 = plt.subplots()
         ax2.pie(stg_inv,labels = stg_inv.index,autopct='%0.01f%%')
-        st.pyplot(fig2)
-
-    col3,col4 = st.columns(2)
+        st.pyplot(fig2,clear_figure=True)
+        
 
     # #stage wise investment --> round
     # with col3:
@@ -103,8 +102,8 @@ def load_startup_analysis(startup):
     st.subheader('City wise investors')
     city_inv = df[df['Startup'].str.contains(startup)].groupby('City')['Amount'].sum()
     
-    fig3 , ax3 = plt.subplots()
-    ax3.pie(city_inv,labels = city_inv.index,autopct='%0.00001f%%')
+    fig3 , ax3 = plt.subplots(figsize = (5,5))
+    ax3.pie(city_inv,labels = city_inv.index,autopct='%0.01f%%' )
     st.pyplot(fig3)
 
 
@@ -125,7 +124,7 @@ def load_investor_detail(investor):
         fig, ax = plt.subplots()
         ax.bar(big_series.index,big_series.values)
 
-        st.pyplot(fig)
+        st.pyplot(fig,clear_figure=True)
 
     with col2:
         vertical_series = df[df['Investors'].str.contains(investor)].groupby('Verticle')['Amount'].sum()
@@ -133,8 +132,7 @@ def load_investor_detail(investor):
         fig1 , ax1 = plt.subplots()
         ax1.pie(vertical_series,labels = vertical_series.index,autopct='%0.01f%%')
 
-        st.pyplot(fig1)
-
+        st.pyplot(fig1,clear_figure=True)
     col3,col4 = st.columns(2)
 
     #stage wise investment --> round
@@ -145,7 +143,7 @@ def load_investor_detail(investor):
 
         fig2 , ax2 = plt.subplots()
         ax2.pie(stg_inv,labels = stg_inv.index,autopct='%0.01f%%')
-        st.pyplot(fig2)
+        st.pyplot(fig2,clear_figure=True)
 
     #city wise investment
     with col4:
@@ -155,7 +153,7 @@ def load_investor_detail(investor):
         
         fig3 , ax3 = plt.subplots()
         ax3.pie(city_inv,labels = city_inv.index,autopct='%0.01f%%')
-        st.pyplot(fig3)
+        st.pyplot(fig3,clear_figure=True)
 
 #YOY Investment
 
